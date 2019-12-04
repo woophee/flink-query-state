@@ -17,6 +17,6 @@ public class KafkaDeserializer implements KafkaDeserializationSchema<SourceDataM
 
     @Override
     public TypeInformation<SourceDataModel> getProducedType() {
-        return null;
+        return TypeInformation.of(SourceDataModel.class);
     }
 }
