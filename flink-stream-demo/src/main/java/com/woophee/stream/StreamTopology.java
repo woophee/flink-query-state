@@ -10,8 +10,10 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 
 
 public class StreamTopology {
@@ -25,9 +27,8 @@ public class StreamTopology {
                 .filter(new Filter())
                 .flatMap(new FlatMap())
                 .keyBy(new KeySelect())
-                .timeWindow(Time.seconds(5))
-                .reduce(new Reduce())
+                .window(TumblingEventTimeWindows.of(Time.hours(1)))
+                .reduce(new Reduce(), new WindowOpe())
                 .addSink(new ConsoleSink());
-
     }
 }
