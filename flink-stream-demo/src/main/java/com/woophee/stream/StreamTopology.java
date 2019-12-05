@@ -9,6 +9,7 @@ import org.apache.flink.api.java.tuple.Tuple1;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
+import org.apache.flink.streaming.api.datastream.QueryableStateStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
@@ -30,5 +31,6 @@ public class StreamTopology {
                 .window(TumblingEventTimeWindows.of(Time.hours(1)))
                 .reduce(new Reduce(), new WindowOpe())
                 .addSink(new ConsoleSink());
+
     }
 }
