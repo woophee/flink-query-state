@@ -4,6 +4,7 @@ import org.apache.flink.streaming.api.functions.AssignerWithPeriodicWatermarks;
 import org.apache.flink.streaming.api.watermark.Watermark;
 
 import javax.annotation.Nullable;
+import java.util.Map;
 
 public class KafkaWatermarks implements AssignerWithPeriodicWatermarks<SourceDataModel> {
     @Nullable
@@ -14,6 +15,9 @@ public class KafkaWatermarks implements AssignerWithPeriodicWatermarks<SourceDat
 
     @Override
     public long extractTimestamp(SourceDataModel sourceDataModel, long l) {
+        Map<String, Object> dataKey = sourceDataModel.getDataKey();
+        SourceDataModel.DataValue dataValue = sourceDataModel.getDataValue();
+        long timestamp = (long) dataKey.get("timestamp");
         return 0;
     }
 }
