@@ -10,7 +10,8 @@ public class Reduce extends RichReduceFunction<SourceData> {
     private final static Logger logger = LoggerFactory.getLogger(Reduce.class);
 
     @Override
-    public SourceData reduce(SourceData sourceData, SourceData t1) throws Exception {
-        return null;
+    public SourceData reduce(SourceData t1, SourceData t2) throws Exception {
+        logger.info("#Reduce#");
+        return t2;
     }
 }

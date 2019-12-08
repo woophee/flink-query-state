@@ -1,5 +1,6 @@
 package com.woophee.stream;
 
+import com.woophee.stream.model.SinkData;
 import com.woophee.stream.sink.ConsoleSink;
 import com.woophee.stream.source.KafkaConsumer;
 import com.woophee.stream.model.SourceData;
@@ -15,7 +16,7 @@ public class StreamTopology {
 
     public static void build(StreamExecutionEnvironment env) {
 
-        DataStreamSink<SourceData> stream = env
+        DataStreamSink<SinkData> stream = env
                 .addSource(KafkaConsumer.build())
                 .rebalance()
                 .process(new Process())
