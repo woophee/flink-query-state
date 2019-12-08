@@ -1,12 +1,11 @@
 package com.woophee.stream.sink;
 
-import com.woophee.stream.source.SourceDataModel;
+import com.woophee.stream.model.SourceData;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
-import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 
-public class ConsoleSink extends RichSinkFunction<SourceDataModel> {
+public class ConsoleSink extends RichSinkFunction<SourceData> {
     @Override
-    public void invoke(SourceDataModel value, Context context) throws Exception {
+    public void invoke(SourceData value, Context context) throws Exception {
 
     }
 }
