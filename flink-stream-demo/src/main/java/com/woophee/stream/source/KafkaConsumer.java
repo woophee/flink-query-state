@@ -7,12 +7,12 @@ import java.util.Properties;
 
 public class KafkaConsumer {
 
-    private static final String topic = "test";
+    private static final String topic = "rum";
 
     public static FlinkKafkaConsumer<SourceData> build(){
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers", "localhost:9092");
-        properties.setProperty("group.id", "test");
+        properties.setProperty("bootstrap.servers", "47.110.139.169:9092");
+        properties.setProperty("group.id", "stream_demo");
         FlinkKafkaConsumer<SourceData> kafkaConsumer = new FlinkKafkaConsumer<>(
                 topic,
                 new KafkaDeserializer(),
