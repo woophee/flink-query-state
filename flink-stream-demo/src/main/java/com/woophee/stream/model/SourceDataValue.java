@@ -3,6 +3,7 @@ package com.woophee.stream.model;
 public class SourceDataValue {
     private Integer id;
     private Boolean flag;
+    private Integer number;
     private String attachment;
     private String message;
     private Long timestamp;
@@ -21,6 +22,14 @@ public class SourceDataValue {
 
     public void setFlag(Boolean flag) {
         this.flag = flag;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getAttachment() {
@@ -46,4 +55,5 @@ public class SourceDataValue {
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
+
 }
