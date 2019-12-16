@@ -14,9 +14,9 @@ public class KeySelect implements KeySelector<SourceData, Tuple1<String>> {
 
     @Override
     public Tuple1<String> getKey(SourceData sourceData) throws Exception {
-        logger.info("*KeySelect*");
         SourceDataValue dataValue = sourceData.getDataValue();
         Integer id = dataValue.getId();
+        logger.info("#KeySelect# id:" + id);
         return new Tuple1<>(String.valueOf(id));
     }
 }

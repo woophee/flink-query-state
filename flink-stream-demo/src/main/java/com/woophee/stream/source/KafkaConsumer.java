@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class KafkaConsumer {
 
-    private static final String topic = "rum";
+    private static final String topic = "state";
 
     public static FlinkKafkaConsumer<SourceData> build(){
         Properties properties = new Properties();

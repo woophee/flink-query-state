@@ -1,11 +1,12 @@
 package com.woophee.stream.transform;
 
 import com.woophee.stream.model.SourceData;
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Reduce extends RichReduceFunction<SourceData> {
+public class Reduce implements ReduceFunction<SourceData> {
 
     private final static Logger logger = LoggerFactory.getLogger(Reduce.class);
 

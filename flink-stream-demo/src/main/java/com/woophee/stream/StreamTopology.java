@@ -23,7 +23,7 @@ public class StreamTopology {
                 .filter(new Filter())
                 .flatMap(new FlatMap())
                 .keyBy(new KeySelect())
-                .window(TumblingEventTimeWindows.of(Time.hours(1)))
+                .window(TumblingEventTimeWindows.of(Time.minutes(1)))
                 .reduce(new Reduce(), new WindowOpe())
                 .addSink(new ConsoleSink());
 
