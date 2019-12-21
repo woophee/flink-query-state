@@ -33,6 +33,7 @@ public class WindowOpe extends RichWindowFunction<SourceData, SinkData, Tuple1<S
     @Override
     public void apply(Tuple1<String> stringTuple1, TimeWindow timeWindow, Iterable<SourceData> iterable, Collector<SinkData> collector) throws Exception {
         logger.info("#WindowOpe#");
+        logger.info("keystate, " + sum);
         iterable.forEach(sourceData -> collector.collect(new SinkData(timeWindow, sourceData)));
     }
 }

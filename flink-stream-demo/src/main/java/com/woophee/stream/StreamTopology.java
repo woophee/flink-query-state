@@ -28,11 +28,13 @@ public class StreamTopology {
                 .flatMap(new FlatMap())
                 .keyBy(new KeySelect());
 
+        //老组合
         SingleOutputStreamOperator<SinkData> singleOutputStreamOperator = keyedStream
                 .window(TumblingEventTimeWindows.of(Time.minutes(1)))
                 .reduce(new Reduce(), new WindowOpe());
 
         singleOutputStreamOperator.addSink(new ConsoleSink());
 
+        keyedStream.asQueryableState("stream-query");
     }
 }
