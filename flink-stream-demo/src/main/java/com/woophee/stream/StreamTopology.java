@@ -6,6 +6,7 @@ import com.woophee.stream.source.KafkaConsumer;
 import com.woophee.stream.model.SourceData;
 import com.woophee.stream.transform.*;
 import com.woophee.stream.transform.Process;
+import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.java.tuple.Tuple1;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
@@ -35,6 +36,6 @@ public class StreamTopology {
 
         singleOutputStreamOperator.addSink(new ConsoleSink());
 
-        keyedStream.asQueryableState("stream-query");
+        keyedStream.asQueryableState("stream-query", ValueStateManage.getValueStateDescriptor());
     }
 }

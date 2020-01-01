@@ -1,5 +1,7 @@
 package com.woophee.server.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.woophee.server.SourceData;
 import com.woophee.server.service.StateService;
 import org.apache.flink.api.common.JobID;
 import org.apache.flink.api.common.state.ValueState;
@@ -7,7 +9,6 @@ import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.queryablestate.client.QueryableStateClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,22 +25,21 @@ public class StateServiceImpl implements StateService {
     public void query(String jobIdStr, String address) throws IOException {
         JobID jobId = JobID.fromHexString(jobIdStr);
         long key = 1L;
-        //flink-core-1.7.0-sources.jar!/org/apache/flink/configuration/QueryableStateOptions.java
-        QueryableStateClient client = new QueryableStateClient("127.0.0.1", 9069);
 
-        // the state descriptor of the state to be fetched.
-        ValueStateDescriptor<Tuple2<Long, Long>> descriptor =
+        QueryableStateClient client = new QueryableStateClient(address, 9069);
+
+        ValueStateDescriptor<SourceData> descriptor =
                 new ValueStateDescriptor<>(
-                        "average",
-                        TypeInformation.of(new TypeHint<Tuple2<Long, Long>>() {}));
+                        "value-descriptor",
+                        TypeInformation.of(new TypeHint<SourceData>() {}));
 
-        CompletableFuture<ValueState<Tuple2<Long, Long>>> resultFuture =
-                client.getKvState(jobId, "query-name", key, BasicTypeInfo.LONG_TYPE_INFO, descriptor);
+        CompletableFuture<ValueState<SourceData>> resultFuture =
+                client.getKvState(jobId, "stream-query", key, BasicTypeInfo.LONG_TYPE_INFO, descriptor);
 
         logger.info("get kv state return future, waiting......");
-        // org.apache.flink.queryablestate.exceptions.UnknownKeyOrNamespaceException: Queryable State Server : No state for the specified key/namespace.
-        ValueState<Tuple2<Long, Long>> res = resultFuture.join();
-        logger.info("query result:{}",res.value());
+        ValueState<SourceData> res = resultFuture.join();
+        logger.info("query result:{} ",res.value());
+        logger.info("JSON string result:{} ", JSON.toJSONString(res.value()));
         client.shutdownAndWait();
     }
 }

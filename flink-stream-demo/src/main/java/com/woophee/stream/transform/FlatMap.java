@@ -16,16 +16,9 @@ public class FlatMap extends RichFlatMapFunction<SourceData, SourceData> {
 
     private final static Logger logger = LoggerFactory.getLogger(FlatMap.class);
 
-//    private transient ValueState<Tuple2<Long, Long>> sum;
 
     @Override
     public void open(Configuration config) {
-//        ValueStateDescriptor<Tuple2<Long, Long>> descriptor =
-//                new ValueStateDescriptor<>(
-//                        "average", // the state name
-//                        TypeInformation.of(new TypeHint<Tuple2<Long, Long>>() {})); // type information
-//        descriptor.setQueryable("query-name");
-//        sum = getRuntimeContext().getState(descriptor);
     }
 
     @Override
