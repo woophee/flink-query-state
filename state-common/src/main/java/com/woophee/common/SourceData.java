@@ -1,4 +1,4 @@
-package com.woophee.stream.model;
+package com.woophee.common;
 
 import java.util.Map;
 

@@ -1,9 +1,8 @@
 package com.woophee.stream;
 
 
-import com.woophee.stream.model.SourceData;
+import com.woophee.common.SourceData;
 import org.apache.flink.api.common.state.ReducingStateDescriptor;
-import org.apache.flink.api.common.state.StateTtlConfig;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeinfo.TypeHint;
 import org.apache.flink.api.common.typeinfo.TypeInformation;

@@ -1,5 +1,6 @@
 package com.woophee.stream.model;
 
+import com.woophee.common.SourceData;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 
 public class SinkData {

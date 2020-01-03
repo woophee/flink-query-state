@@ -1,4 +1,4 @@
-package com.woophee.stream.model;
+package com.woophee.common;
 
 public class SourceDataValue {
     private Integer id;

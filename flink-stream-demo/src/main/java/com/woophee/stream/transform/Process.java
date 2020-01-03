@@ -1,6 +1,6 @@
 package com.woophee.stream.transform;
 
-import com.woophee.stream.model.SourceData;
+import com.woophee.common.SourceData;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.util.Collector;
 import org.slf4j.Logger;

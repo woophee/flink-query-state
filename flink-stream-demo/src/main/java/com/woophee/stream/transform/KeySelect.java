@@ -1,8 +1,8 @@
 package com.woophee.stream.transform;
 
 
-import com.woophee.stream.model.SourceData;
-import com.woophee.stream.model.SourceDataValue;
+import com.woophee.common.SourceData;
+import com.woophee.common.SourceDataValue;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple1;
 import org.slf4j.Logger;

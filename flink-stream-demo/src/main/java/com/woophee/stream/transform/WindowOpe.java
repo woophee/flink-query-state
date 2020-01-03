@@ -1,7 +1,7 @@
 package com.woophee.stream.transform;
 
+import com.woophee.common.SourceData;
 import com.woophee.stream.model.SinkData;
-import com.woophee.stream.model.SourceData;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeinfo.TypeHint;

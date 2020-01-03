@@ -1,8 +1,8 @@
 package com.woophee.stream.source;
 
 import com.alibaba.fastjson.JSON;
-import com.woophee.stream.model.SourceData;
-import com.woophee.stream.model.SourceDataValue;
+import com.woophee.common.SourceData;
+import com.woophee.common.SourceDataValue;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.streaming.connectors.kafka.KafkaDeserializationSchema;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

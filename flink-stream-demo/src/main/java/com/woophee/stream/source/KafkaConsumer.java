@@ -1,6 +1,6 @@
 package com.woophee.stream.source;
 
-import com.woophee.stream.model.SourceData;
+import com.woophee.common.SourceData;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
 import java.util.Properties;

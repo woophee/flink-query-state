@@ -1,8 +1,7 @@
 package com.woophee.stream.transform;
 
-import com.woophee.stream.model.SourceData;
+import com.woophee.common.SourceData;
 import org.apache.flink.api.common.functions.ReduceFunction;
-import org.apache.flink.api.common.functions.RichReduceFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,7 @@
 package com.woophee.server.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.woophee.server.SourceData;
+import com.woophee.common.SourceData;
 import com.woophee.server.service.StateService;
 import org.apache.flink.api.common.JobID;
 import org.apache.flink.api.common.state.ValueState;
