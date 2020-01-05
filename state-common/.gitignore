@@ -6,7 +6,6 @@
 /logs/
 /target/
 /build/
-dependency-reduced-pom.xml
 
 # Compiled class file
 *.class
