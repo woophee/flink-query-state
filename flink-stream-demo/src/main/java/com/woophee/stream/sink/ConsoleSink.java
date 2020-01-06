@@ -15,9 +15,14 @@ public class ConsoleSink extends RichSinkFunction<SinkData> {
 
     @Override
     public void invoke(SinkData value, Context context) throws Exception {
-        logger.info("#ConsoleSink# + '\n'"
+        logger.info("#ConsoleSink#"
+                + "\n"
                 + "startWindow: " + new Date(value.getTimeWindow().getStart())
+                + "\n"
                 + "endWindow: " + new Date(value.getTimeWindow().getEnd())
-                + "data: " + JSON.toJSONString(value.getSourceData()));
+                + "\n"
+                + "data: "
+                + "\n"
+                + JSON.toJSONString(value.getSourceData()));
     }
 }

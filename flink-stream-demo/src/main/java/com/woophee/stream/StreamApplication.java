@@ -7,6 +7,7 @@ public class StreamApplication {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+        env.setParallelism(4);
         StreamTopology.build(env);
         env.execute("Stream Demo");
     }

@@ -26,6 +26,7 @@ public class StateServiceImpl implements StateService {
         JobID jobId = JobID.fromHexString(jobIdStr);
         long key = 1L;
 
+        //address example: 127.0.0.1
         QueryableStateClient client = new QueryableStateClient(address, 9069);
 
         ValueStateDescriptor<SourceData> descriptor =
